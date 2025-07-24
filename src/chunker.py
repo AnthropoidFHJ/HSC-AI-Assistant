@@ -27,33 +27,22 @@ def load_pdf_file(data):
 
 def text_split(extracted_data):
     sentence_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=600,
-        chunk_overlap=100,
-        separators=["\n\n", "\n", "॥", "।", "?", "!"],
+        chunk_size=800,
+        chunk_overlap=150,
+        separators=["\n\n", "\n", "।।", "।", "?", "!"],
         length_function=len,
         is_separator_regex=False
     )
-    
-    word_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=200,
-        chunk_overlap=40,
-        separators=[",", ";", " ", "-", "—", ""],
-        length_function=len,
-        is_separator_regex=False
-    )
-    
+
     text_chunks = []
+
     for doc in extracted_data:
-        sentences = sentence_splitter.split_documents([doc])
-        
-        for sent in sentences:
-            content = sent.page_content
-            if len(content) > 400:
-                words = word_splitter.split_documents([sent])
-                text_chunks.extend(words)
-            else:
-                text_chunks.append(sent)
-    
+        if isinstance(doc, str):
+            doc = Document(page_content=doc)
+
+        chunks = sentence_splitter.split_documents([doc])
+        text_chunks.extend(chunks)
+
     logger.info(f"Generated {len(text_chunks)} chunks")
     return text_chunks
 

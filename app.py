@@ -30,11 +30,11 @@ docsearch = PineconeVectorStore.from_existing_index(
 
 retriever = docsearch.as_retriever(
     search_type="similarity",
-    search_kwargs={"k": 3}
+    search_kwargs={"k": 7}
 )
 
 llm = ChatGroq(
-    temperature=0.9,
+    temperature=0.5,
     model_name="llama3-70b-8192"
 )
 
