@@ -1,0 +1,16 @@
+flask==3.0.0
+sentence-transformers>=2.2.2
+pdfplumber
+python-dotenv
+pinecone
+groq
+langchain
+langchain_huggingface
+langchain_community
+langchain_pinecone
+langchain_groq
+langchain_core
+transformers
+torch
+sentencepiece
+protobuf>=5.29.3,<5.30.0
