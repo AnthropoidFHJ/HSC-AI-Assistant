@@ -170,40 +170,6 @@ Answer: "Rabindranath Tagore was born in 1861."
 
 ---
 
-📋 **Technical Assessment**
-
-* **Text Extraction Method**: Uses PDFPlumberLoader from LangChain for accurate PDF reading with better Bangla Unicode support. 
-Handles text formatting issues and mixed language content effectively. 
-The library provides reliable text extraction for complex educational documents. 
-Special attention given to preserve Bangla character encoding and document structure.
-
-* **Chunking Strategy**: Uses sentence-level splitting for smaller PDFs to keep meaning intact. 
-Each chunk contains complete sentences with proper Bangla punctuation handling for better understanding. 
-This approach maintains semantic coherence within educational content boundaries. 
-Respects natural language flow and context preservation for optimal retrieval results.
-
-* **Embedding Model Selection**: Uses paraphrase-multilingual-MiniLM-L12-v2 for Bangla and English support with 384-dimension vectors. 
-Creates text representations where similar content groups together using transformer architecture. 
-The model efficiently handles cross-language semantic similarity for educational queries. 
-Provides balanced performance between accuracy and computational efficiency for real-time processing.
-
-* **Query-Chunk Comparison**: Uses cosine similarity in Pinecone database to find matching content across languages. 
-Works well for finding similar educational content regardless of language differences. 
-The similarity measurement is scale-invariant and effective for multilingual content matching. 
-Enables precise retrieval of relevant educational materials from the knowledge base.
-
-* **Query-Document Matching**: Combines embedding similarity with chat history for better context understanding. 
-Uses conversation memory to handle unclear questions and asks for clarification when needed. 
-The system maintains context across multiple exchanges for improved response quality. 
-Provides intelligent fallback mechanisms when query intent is ambiguous or unclear.
-
-* **Performance Analysis**: Current 20% accuracy is mainly due to embedding model limitations in understanding complex Bangla-English educational content. 
-Groq LLaMA3's response generation also contributes to accuracy challenges in multilingual scenarios. 
-The retrieval system finds relevant chunks but answer generation needs optimization. 
-Both embedding model and LLM require improvement for better content matching.
-
----
-
 🧪 **Development History**
 
 * **Research Phase**: Content analysis and multilingual requirements gathering
